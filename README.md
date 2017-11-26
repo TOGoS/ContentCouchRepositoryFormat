@@ -30,6 +30,7 @@ Programs should have some reasonable default behavior when some files are missin
   - ```cache/``` - cached information;
     nothing should be stored in this directory that can't be recreated on demand
   - ```remote-repos.lst``` - a list of remote repository pseudo-URLs (see below)
+  - ```repo-name.txt``` - single-line text file containing the name of this repository
 
 ## remote-repos.lst
 
