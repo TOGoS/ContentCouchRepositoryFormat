@@ -13,6 +13,17 @@ The purpose of this document is to assign specific meanings and encodings to spe
 but not every repository is expected to contain all the files mentioned.
 Programs should have some reasonable default behavior when some files are missing.
 
+## Default repository resolution
+
+There is often a single repository being used by any given system.  Standard rules for finding it are as follows:
+- If a local repository is explicitly specified by a command-line argument (or config file), the program should use that.
+- If ```ccouch_repo_path``` environment variable is set and non-empty, use that
+  (and use ```ccouch_repo_name``` as the name of that repository, unless
+  a configuration file within the repository overrides that)
+- Otherwise, check for ".ccouch" in the user's home directory.  There is no default repository name,
+  and anything that depends on it being named (such as writing head files)
+  should throw an error.
+
 ## Directory structure
 
 - ```.ccouch/```
