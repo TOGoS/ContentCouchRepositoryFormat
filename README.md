@@ -63,3 +63,11 @@ be checked as a last resort.
 Maybe lines like ```#priority:N``` and ```#transient``` to indicate properties
 of repositories listed.
 Also need a way to indicate names of remote repositories; maybe just ```#name:```_name_.
+
+## Environment variables
+
+Declared 2019-05-03 (in case I've already defined others earlier)
+- ccouch_dir - path of directory containing 'heads', 'data', etc
+- ccouch_repo_name - name of your local repository
+- datastore_root - path to the place where you keep your checked-out files
+	
