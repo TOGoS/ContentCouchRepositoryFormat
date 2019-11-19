@@ -47,7 +47,8 @@ There is often a single repository being used by any given system.  Standard rul
 
 A list of repositories, one per line.
 Blank lines and lines starting with ```#``` are ignored
-(though lines beginning with ```#``` followed by a word with no whitespace between may be given special meaning
+(though lines beginning with ```#``` followed by a word with no whitespace between may be given
+[special meaning](https://github.com/TOGoS/M3UExtensions)
 which may be ignored)
 Repositories may be specified in one of several formats:
 
@@ -63,8 +64,6 @@ be checked as a last resort.
 Maybe lines like ```#priority:N``` and ```#transient``` to indicate properties
 of repositories listed.
 Also need a way to indicate names of remote repositories; maybe just ```#name:```_name_.
-
-Maybe invent a convention shared with your M3U files for associating metadata with items and groups.
 
 ## Environment variables
 
