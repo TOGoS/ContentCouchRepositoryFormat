@@ -17,7 +17,7 @@ Programs should have some reasonable default behavior when some files are missin
 
 There is often a single repository being used by any given system.  Standard rules for finding it are as follows:
 - If a local repository is explicitly specified by a command-line argument (or config file), the program should use that.
-- If ```ccouch_repo_path``` environment variable is set and non-empty, use that
+- If ```ccouch_repo_dir``` (previously ```ccouch_repo_path```) environment variable is set and non-empty, use that
   (and use ```ccouch_repo_name``` as the name of that repository, unless
   a configuration file within the repository overrides that)
 - Otherwise, check for ".ccouch" in the user's home directory.  There is no default repository name,
@@ -64,10 +64,11 @@ Maybe lines like ```#priority:N``` and ```#transient``` to indicate properties
 of repositories listed.
 Also need a way to indicate names of remote repositories; maybe just ```#name:```_name_.
 
+Maybe invent a convention shared with your M3U files for associating metadata with items and groups.
+
 ## Environment variables
 
 Declared 2019-05-03 (in case I've already defined others earlier)
-- ccouch_dir - path of directory containing 'heads', 'data', etc
-- ccouch_repo_name - name of your local repository
-- datastore_root - path to the place where you keep your checked-out files
-	
+- ```ccouch_repo_dir``` (deprecated as of 2019-11-19: ```ccouch_dir```, ```ccouch_repo_path```) - path of directory containing 'heads', 'data', etc
+- ```ccouch_repo_name``` - name of your local repository
+- ```datastore_root``` - path to the place where you keep your checked-out files (for me this is either my home directory or a subdirectory on a mounted drive containing 'archives', 'incoming', 'share', etc)
