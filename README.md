@@ -76,6 +76,10 @@ Declared 2019-05-03 (in case I've already defined others earlier)
 
 - ```ccouch_repo_dir``` (deprecated as of 2019-11-19: ```ccouch_dir```, ```ccouch_repo_path```) - path of directory containing 'heads', 'data', etc
 - ```ccouch_repo_name``` - name of your local repository
-- ```datastore_root``` - path to the place where you keep your checked-out files (for me this is either my home directory or a subdirectory on a mounted drive containing 'archives', 'incoming', 'share', etc)
-- ```ccouch_store_sector``` - name of sector within which explicitly stored blobs should go
-- ```ccouch_cache_sector``` - name of sector within which blobs cached as a side-effect of other operations (i.e. when the goal is not specifically to store them) should be stored.  Should fall back to ccouch_store_sector if this is not set.
+- ```ccouch_store_sector``` - name of sector into which explicitly-stored files should
+  be stored/uploaded, e.g. "pictures", 'share', etc)
+- ```ccouch_cache_sector``` - name of sector within which blobs cached
+  as a side-effect of other operations (i.e. when the goal is not
+  specifically to store them) should be stored.
+  Caching should fall back to ccouch_store_sector if this is not set.
+- ```datastore_root``` - path to the place where you keep your checked-out files (for me this is either my home directory or a subdirectory on a mounted drive containing 'archives', 'incom
