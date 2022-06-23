@@ -70,16 +70,26 @@ Also need a way to indicate names of remote repositories; maybe just ```#name:``
 Not all versions of ContentCouch actually look at these variables!
 Nevertheless, if you are storing this information in environment variables,
 e.g. for use by scripts that run ccouch, or other utilities,
-try to use them as indicated below.
+try to use them as indicated below:
 
-Declared 2019-05-03 (in case I've already defined others earlier)
-
-- ```ccouch_repo_dir``` (deprecated as of 2019-11-19: ```ccouch_dir```, ```ccouch_repo_path```) - path of directory containing 'heads', 'data', etc
-- ```ccouch_repo_name``` - name of your local repository
-- ```ccouch_store_sector``` - name of sector into which explicitly-stored files should
+- `CCOUCH_REPO_DIR` (fallbacks: `ccouch_repo_dir`, `ccouch_dir`, `ccouch_repo_path`) - path of directory containing 'heads', 'data', etc
+- `CCOUCH_REPO_NAME` (fallbacks: `ccouch_repo_name`) - name of your local repository
+- `CCOUCH_STORE_SECTOR` (fallbacks: `ccouch_store_sector`) - name of sector into which explicitly-stored files should
   be stored/uploaded, e.g. "pictures", 'share', etc)
-- ```ccouch_cache_sector``` - name of sector within which blobs cached
+- `CCOUCH_CACHE_SECTOR` (fallbacks: `ccouch_cache_sector`, `CCOUCH_STORE_SECTOR`, `ccouch_store_sector`) -
+  name of sector within which blobs cached
   as a side-effect of other operations (i.e. when the goal is not
   specifically to store them) should be stored.
   Caching should fall back to ccouch_store_sector if this is not set.
-- ```datastore_root``` - path to the place where you keep your checked-out files (for me this is either my home directory or a subdirectory on a mounted drive containing 'archives', 'incom
+  
+Not used directly by CCouch, but for my own purposes:
+  
+- `TOG_STUFF_DIR` (fallbacks: `tog_stuff_dir`) - contains TOG's smaller documents -- `docs`, `proj`, etc.
+- `TOG_DATASTORE_DIR` (fallbacks: `datastore_root`; read-only fallbacks: `TOG_STUFF_DIR`, `tog_stuff_dir`, `"D:"`) - contains collections of large files; 'archives', 'incoming', 'share', 'music/work', etc
+
+Changes:
+- 2019-11-19 - `ccouch_repo_dir` replaces `ccouch_dir` and/or `ccouch_repo_path`
+- 2022-06-23 - changing to prefer CAPITALIZED_VARIABLE_NAMES instead of lowercase_ones,
+  the idea being that lowercase signifiy local variables used by scripts,
+  whereas capitalized ones represent configuration used across the system,
+  such as `TERM`, `EDITOR`, `PATH`, `NO_COLOR`, etc.
