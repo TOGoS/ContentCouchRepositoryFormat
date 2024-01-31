@@ -86,6 +86,7 @@ Not used directly by CCouch, but for my own purposes:
   
 - `TOG_STUFF_DIR` (fallbacks: `tog_stuff_dir`) - contains TOG's smaller documents -- `docs`, `proj`, etc.
 - `TOG_DATASTORE_DIR` (fallbacks: `datastore_root`; read-only fallbacks: `TOG_STUFF_DIR`, `tog_stuff_dir`, `"D:"`) - contains collections of large files; 'archives', 'incoming', 'share', 'music/work', etc
+- `TOG_MUSIC_WORK_DIR` (should default to `TOG_STUFF_DIR + "/music/work"`)
 
 Changes:
 - 2019-11-19 - `ccouch_repo_dir` replaces `ccouch_dir` and/or `ccouch_repo_path`
